@@ -10,10 +10,10 @@ dotenv.config();
 const emojis = require('./resources/emoji-compact.json');
 
 const client = new TwitterApi({
-    appKey: process.env.appKey,
-    appSecret: process.env.appSecret,
-    accessToken: process.env.accessToken,
-    accessSecret: process.env.accessSecret,
+    appKey: process.env.APP_KEY,
+    appSecret: process.env.APP_SECRET,
+    accessToken: process.env.ACCESS_TOKEN,
+    accessSecret: process.env.ACCESS_SECRET,
 });
 
 let followersList = [];
@@ -55,7 +55,7 @@ const getLatestArticleHeadline = async () => {
             'Content-Type': 'application/json',
         },
         query: `query GetUserArticles($page: Int!) {
-            user(username: "${process.env.hashnodeUsrName}") {
+            user(username: "${process.env.HN_USR_NAME}") {
               publication {
                 posts(page: $page) {
                    title
@@ -133,7 +133,8 @@ const drawBanner = async () => {
 }
 
 const init = async () => {
-    const me = await client.v2.userByUsername(process.env.twitterHandle);
+    //const me = await client.v2.userByUsername('sangyk_dev');
+    const me = await client.v2.userByUsername(process.env.TWITTER_HANDLE);
     userId = me.data.id;
 
     //Getting Latest Tweet Reactions from twitter
