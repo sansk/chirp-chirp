@@ -1,0 +1,37 @@
+name: Twitter-Banner-Update-status
+
+# Controls when the workflow will run
+on:
+  schedule:
+    - cron: "3 * * * *"
+
+  push:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+
+      # Runs a set of commands using the runners shell
+      - name: Setup env vars
+        run: |
+          touch .env
+          echo APP_KEY=${{ secrets.APP_KEY }} >> .env
+          echo APP_SECRET=${{ secrets.APP_SECRET }} >> .env
+          echo ACCESS_TOKEN=${{ secrets.ACCESS_TOKEN }} >> .env
+          echo ACCESS_SECRET=${{ secrets.ACCESS_SECRET }} >> .env
+          echo TWITTER_HANDLE=${{ secrets.TWITTER_HANDLE }} >> .env
+          echo HN_USR_NAME=${{ secrets.HN_USR_NAME }} >> .env
+          
+      # Runs a single command using the runners shell
+      - name: Install & run
+        run: npm i && node index.js
