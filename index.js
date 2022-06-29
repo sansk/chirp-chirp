@@ -126,9 +126,9 @@ const drawBanner = async () => {
         // Comment the below statement while testing. Uncomment to make your profile banner LIVE!
         await client.v1.updateAccountProfileBanner("./resources/chirp/finalBanner.png");
         console.log("Banner Uploaded.");
-        let id = setTimeout(() => {
-            deleteImages();
-        }, 15000);
+        // let id = setTimeout(() => {
+        //     deleteImages();
+        // }, 15000);
     });
 }
 
