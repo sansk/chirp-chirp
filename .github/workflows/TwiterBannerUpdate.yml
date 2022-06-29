@@ -3,7 +3,7 @@ name: Twitter-Banner-Update-status
 # Controls when the workflow will run
 on:
   schedule:
-    - cron: "0 * * * *"
+    - cron: "5 * * * *"
 
   push:
     branches: [ "main" ]
