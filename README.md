@@ -10,24 +10,24 @@
 </center>   
    
 ![Chirp-Chirp. Real-Time Twitter Banner](./resources/chirp-chirp.png)
-#
+
 ## Thanks to these Guys!
 Inspired from these guys post/work, I tried exploring Twitter API resulting in this experiment.  
 * [Tony Dinh](https://twitter.com/tdinh_me) - His Emoji Banner
 * [Chris Bongers](https://twitter.com/DailyDevTips1) - His Blog post on Dynamic twitter header
-#
+
 ## What to expect in this Banner?
 1. Update your last 3 followers.
 2. Latest Blog Post title from hashnode Blog post.
 3. Display the Emoji's from the last 25 replies to my tweets/replies.
-#
+
 ## What is used to make this happen?
 * Node JS
 * [node-twitter-api-v2](https://github.com/PLhery/node-twitter-api-v2) for accessing Twitter API v2 & V1.
 * [Axios](https://www.npmjs.com/package/axios), a promise based HTTP client.
 * [Twitter Emoji](https://www.npmjs.com/package/twemoji), a standard Unicode emoji library.
 * [JIMP](https://www.npmjs.com/package/jimp) & [Merge Img](https://www.npmjs.com/package/merge-img), for Image processing.
-#
+
 ## How this Script works?
 1. Initialise the twitter client.
 2. Fetch the Emoji
@@ -37,7 +37,7 @@ Inspired from these guys post/work, I tried exploring Twitter API resulting in t
 3. Fetch the latest blog post title from Hashnode GraphQL API.
 4. Fetch the last 3 twitter followers image & handle.
 5. Put everything into the banner. 'banner.png' -> 'finalBanner.png'
-#
+
 ## How to Setup & Run this Script?
 Apply for [Twitter Developer's Account](https://developer.twitter.com/en/apply-for-access) and get your API & Access Keys. 
 
@@ -85,12 +85,12 @@ Apply for [Twitter Developer's Account](https://developer.twitter.com/en/apply-f
           echo HN_USR_NAME=${{ secrets.HN_USR_NAME }} >> .env
    ```
 
-#
+
 ## More Info
 A detailed blog post is coming soon! - Will be updated with the link.
 
 For any questions, DM me on twitter.  
 ![Twitter Follow](https://img.shields.io/twitter/follow/sangyk_dev?style=social)
-#
+
 ## License
 AGPLv3
