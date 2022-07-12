@@ -94,8 +94,8 @@ const drawBanner = async () => {
             fs.unlinkSync(`./resources/chirp/${followersList[0]}.png`);
             fs.unlinkSync(`./resources/chirp/${followersList[1]}.png`);
             fs.unlinkSync(`./resources/chirp/${followersList[2]}.png`);
-            fs.unlinkSync(`./resources/chirp/emoji.png`);
-            fs.unlinkSync(`./resources/chirp/finalBanner.png`);
+            // fs.unlinkSync(`./resources/chirp/emoji.png`);
+            // fs.unlinkSync(`./resources/chirp/finalBanner.png`);
         } catch (e) {
             console.log(e);
         }
@@ -126,9 +126,7 @@ const drawBanner = async () => {
         // Comment the below statement while testing. Uncomment to make your profile banner LIVE!
         await client.v1.updateAccountProfileBanner("./resources/chirp/finalBanner.png");
         console.log("Banner Uploaded.");
-        // let id = setTimeout(() => {
-        //     deleteImages();
-        // }, 15000);
+        deleteImages();
     });
 }
 

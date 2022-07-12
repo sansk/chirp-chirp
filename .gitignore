@@ -8,6 +8,7 @@
 # misc
 .DS_Store
 issues.txt
+Badges.md
 
 #Environment Variables
 .env
