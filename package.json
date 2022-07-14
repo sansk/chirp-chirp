@@ -27,6 +27,6 @@
     "jimp": "^0.16.1",
     "merge-img": "^2.1.3",
     "twemoji": "^14.0.2",
-    "twitter-api-v2": "^1.12.2"
+    "twitter-api-v2": "^1.12.3"
   }
 }
