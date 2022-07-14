@@ -27,7 +27,7 @@ const getLatestTweetReaction = async () => {
             .filter((e) => input.indexOf(e) > -1)
             .map((e) => twemoji.convert.toCodePoint(e));
     }
-    const userReplyMention = await client.v2.userMentionTimeline(userId, { max_results: 25 });
+    const userReplyMention = await client.v2.userMentionTimeline(userId, { max_results: 50 });
     userReplyMention.data.data.forEach((i) => {
         i.text && emoijString.unshift(...getEmojis(i.text));
     });
@@ -76,11 +76,13 @@ const getFollowerDetails = async () => {
 }
 
 const drawBanner = async () => {
-    const font = await jimp.loadFont(jimp.FONT_SANS_32_WHITE);
-    const fontSmall = await jimp.loadFont(jimp.FONT_SANS_16_WHITE);
+    // const font = await jimp.loadFont(jimp.FONT_SANS_32_WHITE);
+    // const fontSmall = await jimp.loadFont(jimp.FONT_SANS_16_WHITE);
+    const font = await jimp.loadFont(jimp.FONT_SANS_32_BLACK);
+    //const fontSmall = await jimp.loadFont(jimp.FONT_SANS_16_BLACK);
 
     const drawImageInBanner = (type, mask, drawPos_X, drawPos_Y) => {
-        type === 'follower' ? (mask.resize(60, 60), mask.circle()) : mask.resize(55, 385);
+        type === 'follower' ? (mask.resize(60, 60), mask.circle()) : mask.resize(45, 385);
         banner.composite(mask, drawPos_X, drawPos_Y);
     }
 
@@ -109,18 +111,18 @@ const drawBanner = async () => {
     drawImageInBanner('follower', await jimp.read(`./resources/chirp/${followersList[1]}.png`), 70, 145);
     drawImageInBanner('follower', await jimp.read(`./resources/chirp/${followersList[2]}.png`), 70, 210);
 
-    followersList.map((item, i) => {
-        let x = 135,
-            y = 100;
+    // followersList.map((item, i) => {
+    //     let x = 135,
+    //         y = 100;
 
-        writeInBanner(fontSmall, x, y + (i * 65), item);
-    });
+    //     writeInBanner(fontSmall, x, y + (i * 65), item);
+    // });
 
     // Update the Latest Blog Headline
-    writeInBanner(font, 420, 435, latestBlogHdl);
+    writeInBanner(font, 425, 440, latestBlogHdl);
 
     // Update the Latest Tweet Reactions
-    drawImageInBanner('emoji', await jimp.read(`./resources/chirp/emoji.png`), 1440, 50);
+    drawImageInBanner('emoji', await jimp.read(`./resources/chirp/emoji.png`), 1450, 40);
 
     banner.write("./resources/chirp/finalBanner.png", async () => {
         // Comment the below statement while testing. Uncomment to make your profile banner LIVE!
